@@ -73,17 +73,19 @@ class Solution:
 
 
 Solution_sample = Solution()
-a = TreeNode(3)
-b = TreeNode(9)
-c = TreeNode(20)
-d = TreeNode(15)
-e = TreeNode(7)
+# a = TreeNode(3)
+# b = TreeNode(9)
+# c = TreeNode(20)
+# d = TreeNode(15)
+# e = TreeNode(7)
+#
+# a.left = b
+# a.right = c
+#
+# c.left = d
+# c.right = e
 
-a.left = b
-a.right = c
-
-c.left = d
-c.right = e
-
+a = TreeNode(1, TreeNode(2, TreeNode(3), TreeNode(4)), TreeNode(2, None, TreeNode(4)))
+# 期望结果:false
 res = Solution_sample.isBalanced(a)
 print(res)
