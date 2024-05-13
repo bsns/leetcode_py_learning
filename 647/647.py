@@ -59,3 +59,10 @@ class Solution:
                     res+=1
 
         return res
+
+
+Solution_demo = Solution()
+# s = "abc"
+s = "fdsklf"
+res = Solution_demo.countSubstrings(s)
+print(res)
