@@ -47,21 +47,18 @@ class Solution:
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
 
         self.res = True
-        def help(node):
 
+        def helper(node):
             if not node:
                 return 0
 
-            left = help(node.left)+1
-            right = help(node.right)+1
+            left = helper(node.left)
+            right = helper(node.right)
 
-            if (abs(left-right)>1):
+            if abs(left - right) > 1:
                 self.res = False
 
-            value = max(left,right)
+            return max(left, right) + 1
 
-            return value
-
-        help(root)
+        helper(root)
         return self.res
-
