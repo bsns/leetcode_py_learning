@@ -38,10 +38,6 @@ class ListNode:
 class Solution:
     def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
 
-
-
-    # [1, 2, 3, 3, 4, 4, 5]
-        #    pre slow fast
         if not head:
             return head
         dummy_head = ListNode(0)
@@ -55,12 +51,12 @@ class Solution:
         while (fast):
             if (fast.next and fast.next.val == fast.val):
                 slow = fast
-                while(fast and fast.val == slow.val):
+                while (fast and fast.val == slow.val):
                     fast = fast.next
 
                 pre.next = fast
             else:
-                if(fast):
+                if (fast):
                     fast = fast.next
                     pre = pre.next
 
