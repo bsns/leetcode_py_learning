@@ -84,9 +84,10 @@ Solution_demo = Solution()
 # target = 8
 # 输入：nums = [5,7,7,8,8,10], target = 8
 # 输出：[3,4]
-
-nums = [1]
-target = 1
+nums = [5,7,7,8,8,10]
+target = 8
+# nums = [1]
+# target = 1
 # 期望结果:[0,0]
 res = Solution_demo.searchRange(nums,target)
 print(res)
