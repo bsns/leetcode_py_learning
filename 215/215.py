@@ -30,13 +30,38 @@
 #
 #  Related Topics 数组 分治 快速选择 排序 堆（优先队列） 👍 2327 👎 0
 
-
+from typing import List
 # leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
-        heap = []
-        for num in nums:
-            heapq.heappush(heap, num)
-            if (len(heap) > k):
-                heapq.heappop(heap)
-        return heap[0]
+        def quickSelect(nums, left, right, k):
+            pivot_index = partition(nums, left, right)
+            # If pivot_index is equal to k, we found the k-th largest element
+            if pivot_index == k:
+                return nums[pivot_index]
+            elif pivot_index < k:
+                # Search in the right part
+                return quickSelect(nums, pivot_index + 1, right, k)
+            else:
+                # Search in the left part
+                return quickSelect(nums, left, pivot_index - 1, k)
+
+        def partition(nums, left, right):
+            pivot = nums[right]
+            p_index = left
+            for i in range(left, right):
+                if nums[i] >= pivot:  # Change comparison to >= for finding kth largest
+                    nums[i], nums[p_index] = nums[p_index], nums[i]
+                    p_index += 1
+            nums[p_index], nums[right] = nums[right], nums[p_index]
+            return p_index
+
+        # We are looking for the k-th largest, which is the (len(nums) - k) smallest in 0-based index
+        return quickSelect(nums, 0, len(nums) - 1, k - 1)
+
+
+Solution_demo = Solution()
+nums = [3,2,1,5,6,4]
+k = 2
+res = Solution_demo.findKthLargest(nums,k)
+print(res)
