@@ -49,44 +49,34 @@ from  typing import  List
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
 
-        def binary(nums,left,right):
-            if left>right:
-                return -1
+        left = 0
+        right = len(nums) - 1
 
-            mid =  (left+right)//2
+        while (left <= right):
+            mid = (left + right) // 2
+
             if nums[mid] == target:
                 return mid
-            if left == right:
-                return -1
-            if nums[left]>nums[right]:
-                if (nums[mid] > target):
-                    res = binary(nums,left,mid-1)
-                    if(res==-1):
-                        return binary(nums,mid+1,right)
-                    else:
-                        return res
-                if(nums[mid]<target):
-                    res = binary(nums,mid+1,right)
-                    if (res == -1):
-                        return binary(nums, left ,mid-1)
-                    else:
-                        return res
-
-            if nums[left] < nums[right]:
-                if (nums[mid] > target):
-                        return binary(nums, left, mid - 1)
-                if (nums[mid] < target):
-                    return binary(nums, mid + 1, right)
-
-
-        res = binary(nums,0,len(nums)-1)
-        return res
+            elif (nums[left] <= nums[mid]):
+                if (nums[left] <= target and target < nums[mid]):
+                    right = mid - 1
+                else:
+                    left = mid + 1
+            else:
+                if (nums[mid] < target and target <= nums[right]):
+                    left = mid + 1
+                else:
+                    right = mid - 1
+        return -1
 
 
 Solution_sample = Solution()
 # nums = [4,5,6,7,0,1,2]
 # target = 0
 
-nums = [5,1,3]
-target = 5
+# nums = [5,1,3]
+# target = 5
+
+nums = [3,1]
+target = 1
 print(Solution_sample.search(nums,target))
