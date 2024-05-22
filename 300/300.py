@@ -61,9 +61,10 @@ class Solution:
 
 Solution_sample = Solution()
 
-nums = [10,9,2,5,3,7,101,18]
+# nums = [10,9,2,5,3,7,101,18]
 #                2
 #                  3 4  5
-
+nums = [1,3,6,7,9,4,10,5,6]
+# 期望结果:6
 res = Solution_sample.lengthOfLIS(nums)
 print(res)
