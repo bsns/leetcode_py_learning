@@ -56,9 +56,8 @@ class Solution:
 
                 pre.next = fast
             else:
-                if (fast):
-                    fast = fast.next
-                    pre = pre.next
+                fast = fast.next
+                pre = pre.next
 
         return dummy_head.next
 
