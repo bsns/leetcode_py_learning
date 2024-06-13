@@ -61,7 +61,7 @@ class Solution:
 
 Solution_sample = Solution()
 
-# nums = [1,2,1,3,5,6,4]
+nums = [1,2,1,3,5,6,4]
 
 # nums = [1,2,3,1]
 # 测试用例:[1,2,3,1]
@@ -69,6 +69,6 @@ Solution_sample = Solution()
 # 	期望结果:2
 
 # 测试用例:[1,2]
-nums =  [1,2]
+# nums =  [1,2]
 res = Solution_sample.findPeakElement(nums)
 print(res)
